@@ -4,16 +4,16 @@
 
 {% block content %}
 <section class="mb-10 rounded-2xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-8 shadow-sm sm:p-12">
-  <p class="text-sm font-medium uppercase tracking-wider text-accent-600">跨領域媒合平台</p>
+  <p class="text-sm font-medium uppercase tracking-wider text-teal-700">跨領域媒合平台</p>
   <h1 class="mt-2 text-3xl font-bold tracking-tight text-ink-950 sm:text-4xl">把痛點說清楚，讓對的人看見</h1>
   <p class="mt-4 max-w-2xl text-lg text-slate-600">
     專家發布產業場景中的真實問題；工程師與團隊從這裡找到值得投入的題目。
   </p>
   <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-    <a href="{% url 'painpoint_create' %}" class="inline-flex items-center justify-center rounded-xl bg-accent-500 px-6 py-3 text-center text-base font-semibold text-white shadow-md transition hover:bg-accent-600">
+    <a href="{% url 'painpoint_create' %}" class="inline-flex items-center justify-center rounded-xl bg-teal-600 px-6 py-3 text-center text-base font-semibold text-white shadow-md transition hover:bg-teal-700">
       我要發布痛點
     </a>
-    <a href="{% url 'painpoint_list' %}" class="inline-flex items-center justify-center rounded-xl border-2 border-slate-300 bg-white px-6 py-3 text-center text-base font-semibold text-ink-950 transition hover:border-accent-500 hover:text-accent-600">
+    <a href="{% url 'painpoint_list' %}" class="inline-flex items-center justify-center rounded-xl border-2 border-slate-300 bg-white px-6 py-3 text-center text-base font-semibold text-ink-950 transition hover:border-teal-600 hover:text-teal-700">
       我是工程師，來找題目
     </a>
   </div>
@@ -24,13 +24,13 @@
   <p class="mt-1 text-sm text-slate-600">依領域瀏覽痛點，或從列表頁篩選。</p>
   <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
     {% for cat in categories %}
-      <a href="{% url 'painpoint_list' %}?category={{ cat.slug }}" class="group rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-accent-400 hover:shadow-md">
+      <a href="{% url 'painpoint_list' %}?category={{ cat.slug }}" class="group rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-teal-400 hover:shadow-md">
         <div class="flex items-start gap-3">
           <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-xs font-mono text-slate-600">
             {{ cat.icon_name }}
           </span>
           <div>
-            <h3 class="font-semibold text-ink-950 group-hover:text-accent-600">{{ cat.name }}</h3>
+            <h3 class="font-semibold text-ink-950 group-hover:text-teal-700">{{ cat.name }}</h3>
             <p class="mt-1 text-sm text-slate-600 line-clamp-3">{{ cat.description }}</p>
           </div>
         </div>
