@@ -1,0 +1,39 @@
+{% extends 'collaboration/base.html' %}
+
+{% block title %}發布痛點 — Cross-Domain Collaboration{% endblock %}
+
+{% block content %}
+<div class="mx-auto max-w-2xl">
+  <h1 class="text-2xl font-bold text-ink-950">發布痛點</h1>
+  <p class="mt-1 text-sm text-slate-600">場景描述、現狀與潛在價值支援 Markdown 語法（程式碼區塊、表格等）。</p>
+
+  <form method="post" class="mt-8 space-y-6">
+    {% csrf_token %}
+    {% if form.non_field_errors %}
+      <div class="rounded-lg border border-red-200 bg-red-50 px-4 py-2 text-sm text-red-800">
+        {{ form.non_field_errors }}
+      </div>
+    {% endif %}
+
+    {% for field in form %}
+      <div>
+        <label for="{{ field.id_for_label }}" class="block text-sm font-medium text-slate-700">{{ field.label }}</label>
+        {% if field.help_text %}
+          <p class="mt-0.5 text-xs text-slate-500">{{ field.help_text }}</p>
+        {% endif %}
+        <div class="mt-1">{{ field }}</div>
+        {% if field.errors %}
+          <p class="mt-1 text-sm text-red-600">{{ field.errors.0 }}</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+
+    <div class="flex flex-wrap gap-3">
+      <button type="submit" class="rounded-xl bg-accent-500 px-6 py-2.5 font-semibold text-white shadow hover:bg-accent-600">
+        發布
+      </button>
+      <a href="{% url 'painpoint_list' %}" class="rounded-xl border border-slate-300 px-6 py-2.5 font-medium text-slate-700 hover:bg-slate-50">取消</a>
+    </div>
+  </form>
+</div>
+{% endblock %}
