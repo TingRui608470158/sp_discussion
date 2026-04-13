@@ -31,12 +31,13 @@
           {% if user_profile and user_profile.role == 'expert' %}
             <a href="{% url 'painpoint_create' %}" class="rounded-md bg-teal-600 px-3 py-1.5 text-white shadow-sm hover:bg-teal-700">發布痛點</a>
           {% endif %}
-          <form method="post" action="{% url 'logout' %}" class="inline">
+          <form method="post" action="{% url 'account_logout' %}" class="inline">
             {% csrf_token %}
             <button type="submit" class="rounded-md px-2 py-1 hover:bg-slate-100">登出</button>
           </form>
         {% else %}
-          <a href="{% url 'login' %}" class="rounded-md px-2 py-1 hover:bg-slate-100">登入</a>
+          <a href="{% url 'account_signup' %}" class="rounded-md px-2 py-1 hover:bg-slate-100">註冊</a>
+          <a href="{% url 'account_login' %}" class="rounded-md px-2 py-1 hover:bg-slate-100">登入</a>
         {% endif %}
       </nav>
     </div>
